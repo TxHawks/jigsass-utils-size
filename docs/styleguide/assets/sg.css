@@ -1,0 +1,814 @@
+/* ---
+section: Spacing Utils
+title: Introduction
+order: -10
+---
+
+[![NPM version][npm-image]][npm-url]
+[![Dependency Status][daviddm-image]][daviddm-url]
+
+A collection of dynamically generated size-related utility classes.
+
+Class names follow the [Emmet](http://docs.emmet.io/cheat-sheet/) abbreviation
+syntax, with colons (':') replaced by two dashes (`--`) to follow BEM naming
+conventions.
+
+#### Available classes
+
+  - `.u-w--<amount>`: width
+  - `.u-miw--<amount>`: min-width
+  - `.u-maw--<amount>`: max-width
+
+  - `.u-h--<amount>`: height
+  - `.u-mih--<amount>`: min-height
+  - `.u-mah--<amount>`: max-height
+
+
+Where `<amount>` can be either a unitless number representing a number of
+typographic rhythm units as defined in
+[$jigsass-sizes](https://txhawks.github.io/jigsass-tools-typography/#variable-jigsass-sizes)
+or a length specified in pixels.
+
+
+#### Installation
+
+Using npm:
+
+```sh
+npm i -S jigsass-utils-size
+```
+
+#### Usage
+Import JigSass Utils Size into your main scss file near its very end, together with all
+other utilities (utilities should always be the last to be imported).
+
+```scss
+@import 'path/to/jigsass-utils-size/scss/index';
+```
+
+Like all other JigSass Utils, JigSass Size does not automatically generate any CSS
+when imported. You would need to explicitly indicate that each individual size
+class should actually be generated in each component or object it is used in
+(clarification: This will include style declarations inside `.foo` and .`bar`):
+
+```scss
+// _c.foo.scss
+.foo {
+  @include jigsass-util(u-w, $modifier: 360px); // <-- width: 360px
+
+  ...
+}
+```
+
+```scss
+// _c.bar.scss
+.bar {
+  @include jigsass-util(u-miw, $modifier: 600px);  // <-- min-width: 600px
+  @include jigsass-util(
+    u-miw, $modifier: 1200px,
+    $from: large
+  ); // <-- max-width: 1200px from large bp and on.
+
+  ...
+}
+```
+
+Doing so helps us a great deal with portability, as no matter where we import component or object
+partials, the correct utility classes will be generated. Think of it as a poor man's dependency
+management.
+
+Developer communication is also assisted by including "dependencies" wherever they are required,
+as anyone going through a partial, can easily understand how it should be marked up with just a
+glance.
+
+As far as bloat goes, just don't worry about it - the actual styles will only be generated once,
+at the location in the cascade where the Jigsass Size partial was imported into the main file.
+
+
+JigSass Size classes are responsive-enabled, using [JigSass MQ](https://txhawks.github.io/jigsass-tools-mq/)
+and the breakpoints defined in the [$jigsass-breakpoints](https://txhawks.github.io/jigsass-tools-mq/#variable-jigsass-breakpoints) variable.
+
+Based on the breakpoint arguments passed to `jigsass-util` when including a Size class,
+responsive modifiers are generated according to the following logic:
+
+```scss
+.u-w--<modifier>[-[-from-<breakpoint-name>][-until-<breakpoint-name>][-misc-<breakpoint-name>]]
+```
+
+So, assuming the `medium`, `large` and `landscape` breakpoints are defined in `$jigsass-breakpoints`
+as `600px`, `1024px` and `(orientation: landscape)` respectively,
+
+```scss
+@include jigsass-util(u-h, $modifier: 50);
+```
+will generate the `.u-h--50` class, which is not limited to any media-query.
+
+```scss
+@include jigsass-util(u-h, $modifier: 10, $until: medium);
+```
+
+will generate the `.u-h--10--until-medium` class, which will be in effect at
+`(max-width: 37.49em)` and will override styles in the default class until that point.
+
+```scss
+@include jigsass-util(u-mih, $modifier: 300px, $from: large, $misc: landscape);
+```
+
+will generate the `.u-mih--200px--from-large-when-landscape` class, which will go into
+effect at `(min-width: 64em) and (orientation: landscape)` and will override styles in the default
+class under these  conditions.
+
+
+**License:** MIT
+
+
+
+[npm-image]: https://badge.fury.io/js/jigsass-utils-size.svg
+[npm-url]: https://npmjs.org/package/jigsass-utils-size
+
+[daviddm-image]: https://david-dm.org/TxHawks/jigsass-utils-size.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/TxHawks/jigsass-utils-size
+*/
+.u-w--50 {
+  width: 50rem;
+  /* ---
+section: Size Utils
+title: u-w--50
+order: 1
+---
+A utility class to set the width of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-w, $modifier: 50 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-w--50'>
+    This element has a width of
+    50 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-w--100 {
+  width: 100rem;
+  /* ---
+section: Size Utils
+title: u-w--100
+order: 2
+---
+A utility class to set the width of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-w, $modifier: 100 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-w--100'>
+    This element has a width of
+    100 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-w--150 {
+  width: 150rem;
+  /* ---
+section: Size Utils
+title: u-w--150
+order: 3
+---
+A utility class to set the width of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-w, $modifier: 150 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-w--150'>
+    This element has a width of
+    150 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-w--200 {
+  width: 200rem;
+  /* ---
+section: Size Utils
+title: u-w--200
+order: 4
+---
+A utility class to set the width of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-w, $modifier: 200 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-w--200'>
+    This element has a width of
+    200 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-miw--50 {
+  min-width: 50rem;
+  /* ---
+section: Size Utils
+title: u-miw--50
+order: 5
+---
+A utility class to set the min-width of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-miw, $modifier: 50 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-miw--50'>
+    This element has a min-width of
+    50 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-miw--100 {
+  min-width: 100rem;
+  /* ---
+section: Size Utils
+title: u-miw--100
+order: 6
+---
+A utility class to set the min-width of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-miw, $modifier: 100 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-miw--100'>
+    This element has a min-width of
+    100 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-miw--150 {
+  min-width: 150rem;
+  /* ---
+section: Size Utils
+title: u-miw--150
+order: 7
+---
+A utility class to set the min-width of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-miw, $modifier: 150 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-miw--150'>
+    This element has a min-width of
+    150 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-miw--200 {
+  min-width: 200rem;
+  /* ---
+section: Size Utils
+title: u-miw--200
+order: 8
+---
+A utility class to set the min-width of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-miw, $modifier: 200 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-miw--200'>
+    This element has a min-width of
+    200 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-maw--50 {
+  max-width: 50rem;
+  /* ---
+section: Size Utils
+title: u-maw--50
+order: 9
+---
+A utility class to set the max-width of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-maw, $modifier: 50 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-maw--50'>
+    This element has a max-width of
+    50 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-maw--100 {
+  max-width: 100rem;
+  /* ---
+section: Size Utils
+title: u-maw--100
+order: 10
+---
+A utility class to set the max-width of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-maw, $modifier: 100 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-maw--100'>
+    This element has a max-width of
+    100 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-maw--150 {
+  max-width: 150rem;
+  /* ---
+section: Size Utils
+title: u-maw--150
+order: 11
+---
+A utility class to set the max-width of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-maw, $modifier: 150 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-maw--150'>
+    This element has a max-width of
+    150 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-maw--200 {
+  max-width: 200rem;
+  /* ---
+section: Size Utils
+title: u-maw--200
+order: 12
+---
+A utility class to set the max-width of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-maw, $modifier: 200 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-maw--200'>
+    This element has a max-width of
+    200 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-h--50 {
+  height: 50rem;
+  /* ---
+section: Size Utils
+title: u-h--50
+order: 13
+---
+A utility class to set the height of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-h, $modifier: 50 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-h--50'>
+    This element has a height of
+    50 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-h--100 {
+  height: 100rem;
+  /* ---
+section: Size Utils
+title: u-h--100
+order: 14
+---
+A utility class to set the height of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-h, $modifier: 100 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-h--100'>
+    This element has a height of
+    100 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-h--150 {
+  height: 150rem;
+  /* ---
+section: Size Utils
+title: u-h--150
+order: 15
+---
+A utility class to set the height of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-h, $modifier: 150 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-h--150'>
+    This element has a height of
+    150 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-h--200 {
+  height: 200rem;
+  /* ---
+section: Size Utils
+title: u-h--200
+order: 16
+---
+A utility class to set the height of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-h, $modifier: 200 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-h--200'>
+    This element has a height of
+    200 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-mih--50 {
+  min-height: 50rem;
+  /* ---
+section: Size Utils
+title: u-mih--50
+order: 17
+---
+A utility class to set the min-height of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-mih, $modifier: 50 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-mih--50'>
+    This element has a min-height of
+    50 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-mih--100 {
+  min-height: 100rem;
+  /* ---
+section: Size Utils
+title: u-mih--100
+order: 18
+---
+A utility class to set the min-height of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-mih, $modifier: 100 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-mih--100'>
+    This element has a min-height of
+    100 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-mih--150 {
+  min-height: 150rem;
+  /* ---
+section: Size Utils
+title: u-mih--150
+order: 19
+---
+A utility class to set the min-height of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-mih, $modifier: 150 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-mih--150'>
+    This element has a min-height of
+    150 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-mih--200 {
+  min-height: 200rem;
+  /* ---
+section: Size Utils
+title: u-mih--200
+order: 20
+---
+A utility class to set the min-height of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-mih, $modifier: 200 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-mih--200'>
+    This element has a min-height of
+    200 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-mah--50 {
+  max-height: 50rem;
+  /* ---
+section: Size Utils
+title: u-mah--50
+order: 21
+---
+A utility class to set the max-height of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-mah, $modifier: 50 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-mah--50'>
+    This element has a max-height of
+    50 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-mah--100 {
+  max-height: 100rem;
+  /* ---
+section: Size Utils
+title: u-mah--100
+order: 22
+---
+A utility class to set the max-height of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-mah, $modifier: 100 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-mah--100'>
+    This element has a max-height of
+    100 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-mah--150 {
+  max-height: 150rem;
+  /* ---
+section: Size Utils
+title: u-mah--150
+order: 23
+---
+A utility class to set the max-height of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-mah, $modifier: 150 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-mah--150'>
+    This element has a max-height of
+    150 rhythm units.
+  </div>
+```
+*/
+}
+
+.u-mah--200 {
+  max-height: 200rem;
+  /* ---
+section: Size Utils
+title: u-mah--200
+order: 24
+---
+A utility class to set the max-height of
+an element.
+
+#### Include with:
+
+```scss
+@include jigsass-util(u-mah, $modifier: 200 [, $from, $until, $misc]);
+```
+
+#### Example
+
+```example:html
+  <div class='fpo  u-mah--200'>
+    This element has a max-height of
+    200 rhythm units.
+  </div>
+```
+*/
+}
+
+html {
+  font-size: 37.5%;
+}
+
+body {
+  font-size: 2.6666666667em;
+  line-height: 4rem;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0 !important;
+}
+
+.fpo {
+  background-color: #09a5d9;
+  color: #fff;
+  padding: 1rem;
+}
+
+figure,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}

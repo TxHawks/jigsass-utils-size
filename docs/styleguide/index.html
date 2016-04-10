@@ -1,0 +1,732 @@
+<!doctype html>
+<title>jigsass-utils-size</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="style.css?05" rel="stylesheet">
+<link href="jigsass-logo.png" rel="shortcut icon">
+<script type="text/javascript">WebFontConfig={google:{families:["Roboto:400,100,300,500:latin"]}},function(){var e=document.createElement("script");e.src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js",e.type="text/javascript",e.async="true";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}();</script>
+<script>examples={"base":"","target":"_self","css":["assets/sg.css"],"js":[],"bodyjs":[],"htmlcss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:0;position:static;width:auto","bodycss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:0;position:static;width:auto"};</script>
+
+<header>
+	<nav>
+		<img src="jigsass-logo.png" alt="jigsass-utils-size">
+		
+	<ul>
+		
+				<li>
+					<a href="#spacing-utils"><span>Spacing Utils</span></a>
+					
+	<ul>
+		
+				<li>
+					<a href="#introduction"><span>Introduction</span></a>
+					
+				</li>
+				
+	</ul>
+	
+				</li>
+				
+				<li>
+					<a href="#size-utils"><span>Size Utils</span></a>
+					
+	<ul>
+		
+				<li>
+					<a href="#u-w--50"><span>u-w--50</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-w--100"><span>u-w--100</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-w--150"><span>u-w--150</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-w--200"><span>u-w--200</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-miw--50"><span>u-miw--50</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-miw--100"><span>u-miw--100</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-miw--150"><span>u-miw--150</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-miw--200"><span>u-miw--200</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-maw--50"><span>u-maw--50</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-maw--100"><span>u-maw--100</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-maw--150"><span>u-maw--150</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-maw--200"><span>u-maw--200</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-h--50"><span>u-h--50</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-h--100"><span>u-h--100</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-h--150"><span>u-h--150</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-h--200"><span>u-h--200</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-mih--50"><span>u-mih--50</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-mih--100"><span>u-mih--100</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-mih--150"><span>u-mih--150</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-mih--200"><span>u-mih--200</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-mah--50"><span>u-mah--50</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-mah--100"><span>u-mah--100</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-mah--150"><span>u-mah--150</span></a>
+					
+				</li>
+				
+				<li>
+					<a href="#u-mah--200"><span>u-mah--200</span></a>
+					
+				</li>
+				
+	</ul>
+	
+				</li>
+				
+	</ul>
+	
+	</nav>
+</header>
+
+<main>
+	
+		<section id="spacing-utils">
+			<h2>Spacing Utils</h2>
+			<div>
+				
+				
+		<section id="introduction">
+			<h3>Introduction</h3>
+			<div>
+				<p><a href="https://npmjs.org/package/jigsass-utils-size"><img src="https://badge.fury.io/js/jigsass-utils-size.svg" alt="NPM version"></a>
+<a href="https://david-dm.org/TxHawks/jigsass-utils-size"><img src="https://david-dm.org/TxHawks/jigsass-utils-size.svg?theme=shields.io" alt="Dependency Status"></a></p>
+<p>A collection of dynamically generated size-related utility classes.</p>
+<p>Class names follow the <a href="http://docs.emmet.io/cheat-sheet/">Emmet</a> abbreviation
+syntax, with colons (&#39;:&#39;) replaced by two dashes (<code>--</code>) to follow BEM naming
+conventions.</p>
+<h4 id="available-classes">Available classes</h4>
+<ul>
+<li><code>.u-w--&lt;amount&gt;</code>: width</li>
+<li><code>.u-miw--&lt;amount&gt;</code>: min-width</li>
+<li><p><code>.u-maw--&lt;amount&gt;</code>: max-width</p>
+</li>
+<li><p><code>.u-h--&lt;amount&gt;</code>: height</p>
+</li>
+<li><code>.u-mih--&lt;amount&gt;</code>: min-height</li>
+<li><code>.u-mah--&lt;amount&gt;</code>: max-height</li>
+</ul>
+<p>Where <code>&lt;amount&gt;</code> can be either a unitless number representing a number of
+typographic rhythm units as defined in
+<a href="https://txhawks.github.io/jigsass-tools-typography/#variable-jigsass-sizes">$jigsass-sizes</a>
+or a length specified in pixels.</p>
+<h4 id="installation">Installation</h4>
+<p>Using npm:</p>
+<pre><code class="lang-sh">npm i -S jigsass-utils-size
+</code></pre>
+<h4 id="usage">Usage</h4>
+<p>Import JigSass Utils Size into your main scss file near its very end, together with all
+other utilities (utilities should always be the last to be imported).</p>
+<pre><code class="lang-scss">@import &#39;path/to/jigsass-utils-size/scss/index&#39;;
+</code></pre>
+<p>Like all other JigSass Utils, JigSass Size does not automatically generate any CSS
+when imported. You would need to explicitly indicate that each individual size
+class should actually be generated in each component or object it is used in
+(clarification: This will include style declarations inside <code>.foo</code> and .<code>bar</code>):</p>
+<pre><code class="lang-scss">// _c.foo.scss
+.foo {
+  @include jigsass-util(u-w, $modifier: 360px); // &lt;-- width: 360px
+
+  ...
+}
+</code></pre>
+<pre><code class="lang-scss">// _c.bar.scss
+.bar {
+  @include jigsass-util(u-miw, $modifier: 600px);  // &lt;-- min-width: 600px
+  @include jigsass-util(
+    u-miw, $modifier: 1200px,
+    $from: large
+  ); // &lt;-- max-width: 1200px from large bp and on.
+
+  ...
+}
+</code></pre>
+<p>Doing so helps us a great deal with portability, as no matter where we import component or object
+partials, the correct utility classes will be generated. Think of it as a poor man&#39;s dependency
+management.</p>
+<p>Developer communication is also assisted by including &quot;dependencies&quot; wherever they are required,
+as anyone going through a partial, can easily understand how it should be marked up with just a
+glance.</p>
+<p>As far as bloat goes, just don&#39;t worry about it - the actual styles will only be generated once,
+at the location in the cascade where the Jigsass Size partial was imported into the main file.</p>
+<p>JigSass Size classes are responsive-enabled, using <a href="https://txhawks.github.io/jigsass-tools-mq/">JigSass MQ</a>
+and the breakpoints defined in the <a href="https://txhawks.github.io/jigsass-tools-mq/#variable-jigsass-breakpoints">$jigsass-breakpoints</a> variable.</p>
+<p>Based on the breakpoint arguments passed to <code>jigsass-util</code> when including a Size class,
+responsive modifiers are generated according to the following logic:</p>
+<pre><code class="lang-scss">.u-w--&lt;modifier&gt;[-[-from-&lt;breakpoint-name&gt;][-until-&lt;breakpoint-name&gt;][-misc-&lt;breakpoint-name&gt;]]
+</code></pre>
+<p>So, assuming the <code>medium</code>, <code>large</code> and <code>landscape</code> breakpoints are defined in <code>$jigsass-breakpoints</code>
+as <code>600px</code>, <code>1024px</code> and <code>(orientation: landscape)</code> respectively,</p>
+<pre><code class="lang-scss">@include jigsass-util(u-h, $modifier: 50);
+</code></pre>
+<p>will generate the <code>.u-h--50</code> class, which is not limited to any media-query.</p>
+<pre><code class="lang-scss">@include jigsass-util(u-h, $modifier: 10, $until: medium);
+</code></pre>
+<p>will generate the <code>.u-h--10--until-medium</code> class, which will be in effect at
+<code>(max-width: 37.49em)</code> and will override styles in the default class until that point.</p>
+<pre><code class="lang-scss">@include jigsass-util(u-mih, $modifier: 300px, $from: large, $misc: landscape);
+</code></pre>
+<p>will generate the <code>.u-mih--200px--from-large-when-landscape</code> class, which will go into
+effect at <code>(min-width: 64em) and (orientation: landscape)</code> and will override styles in the default
+class under these  conditions.</p>
+<p><strong>License:</strong> MIT</p>
+
+				
+			</div>
+		</section>
+		
+			</div>
+		</section>
+		
+		<section id="size-utils">
+			<h2>Size Utils</h2>
+			<div>
+				
+				
+		<section id="u-w--50">
+			<h3>u-w--50</h3>
+			<div>
+				<p>A utility class to set the width of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-w, $modifier: 50 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-w--50&#39;&gt;
+    This element has a width of
+    50 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-w--100">
+			<h3>u-w--100</h3>
+			<div>
+				<p>A utility class to set the width of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-w, $modifier: 100 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-w--100&#39;&gt;
+    This element has a width of
+    100 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-w--150">
+			<h3>u-w--150</h3>
+			<div>
+				<p>A utility class to set the width of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-w, $modifier: 150 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-w--150&#39;&gt;
+    This element has a width of
+    150 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-w--200">
+			<h3>u-w--200</h3>
+			<div>
+				<p>A utility class to set the width of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-w, $modifier: 200 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-w--200&#39;&gt;
+    This element has a width of
+    200 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-miw--50">
+			<h3>u-miw--50</h3>
+			<div>
+				<p>A utility class to set the min-width of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-miw, $modifier: 50 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-miw--50&#39;&gt;
+    This element has a min-width of
+    50 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-miw--100">
+			<h3>u-miw--100</h3>
+			<div>
+				<p>A utility class to set the min-width of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-miw, $modifier: 100 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-miw--100&#39;&gt;
+    This element has a min-width of
+    100 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-miw--150">
+			<h3>u-miw--150</h3>
+			<div>
+				<p>A utility class to set the min-width of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-miw, $modifier: 150 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-miw--150&#39;&gt;
+    This element has a min-width of
+    150 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-miw--200">
+			<h3>u-miw--200</h3>
+			<div>
+				<p>A utility class to set the min-width of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-miw, $modifier: 200 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-miw--200&#39;&gt;
+    This element has a min-width of
+    200 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-maw--50">
+			<h3>u-maw--50</h3>
+			<div>
+				<p>A utility class to set the max-width of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-maw, $modifier: 50 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-maw--50&#39;&gt;
+    This element has a max-width of
+    50 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-maw--100">
+			<h3>u-maw--100</h3>
+			<div>
+				<p>A utility class to set the max-width of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-maw, $modifier: 100 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-maw--100&#39;&gt;
+    This element has a max-width of
+    100 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-maw--150">
+			<h3>u-maw--150</h3>
+			<div>
+				<p>A utility class to set the max-width of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-maw, $modifier: 150 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-maw--150&#39;&gt;
+    This element has a max-width of
+    150 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-maw--200">
+			<h3>u-maw--200</h3>
+			<div>
+				<p>A utility class to set the max-width of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-maw, $modifier: 200 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-maw--200&#39;&gt;
+    This element has a max-width of
+    200 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-h--50">
+			<h3>u-h--50</h3>
+			<div>
+				<p>A utility class to set the height of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-h, $modifier: 50 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-h--50&#39;&gt;
+    This element has a height of
+    50 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-h--100">
+			<h3>u-h--100</h3>
+			<div>
+				<p>A utility class to set the height of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-h, $modifier: 100 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-h--100&#39;&gt;
+    This element has a height of
+    100 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-h--150">
+			<h3>u-h--150</h3>
+			<div>
+				<p>A utility class to set the height of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-h, $modifier: 150 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-h--150&#39;&gt;
+    This element has a height of
+    150 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-h--200">
+			<h3>u-h--200</h3>
+			<div>
+				<p>A utility class to set the height of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-h, $modifier: 200 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-h--200&#39;&gt;
+    This element has a height of
+    200 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-mih--50">
+			<h3>u-mih--50</h3>
+			<div>
+				<p>A utility class to set the min-height of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-mih, $modifier: 50 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-mih--50&#39;&gt;
+    This element has a min-height of
+    50 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-mih--100">
+			<h3>u-mih--100</h3>
+			<div>
+				<p>A utility class to set the min-height of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-mih, $modifier: 100 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-mih--100&#39;&gt;
+    This element has a min-height of
+    100 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-mih--150">
+			<h3>u-mih--150</h3>
+			<div>
+				<p>A utility class to set the min-height of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-mih, $modifier: 150 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-mih--150&#39;&gt;
+    This element has a min-height of
+    150 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-mih--200">
+			<h3>u-mih--200</h3>
+			<div>
+				<p>A utility class to set the min-height of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-mih, $modifier: 200 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-mih--200&#39;&gt;
+    This element has a min-height of
+    200 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-mah--50">
+			<h3>u-mah--50</h3>
+			<div>
+				<p>A utility class to set the max-height of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-mah, $modifier: 50 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-mah--50&#39;&gt;
+    This element has a max-height of
+    50 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-mah--100">
+			<h3>u-mah--100</h3>
+			<div>
+				<p>A utility class to set the max-height of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-mah, $modifier: 100 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-mah--100&#39;&gt;
+    This element has a max-height of
+    100 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-mah--150">
+			<h3>u-mah--150</h3>
+			<div>
+				<p>A utility class to set the max-height of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-mah, $modifier: 150 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-mah--150&#39;&gt;
+    This element has a max-height of
+    150 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="u-mah--200">
+			<h3>u-mah--200</h3>
+			<div>
+				<p>A utility class to set the max-height of
+an element.</p>
+<h4 id="include-with-">Include with:</h4>
+<pre><code class="lang-scss">@include jigsass-util(u-mah, $modifier: 200 [, $from, $until, $misc]);
+</code></pre>
+<h4 id="example">Example</h4>
+<pre><code class="lang-example:html">  &lt;div class=&#39;fpo  u-mah--200&#39;&gt;
+    This element has a max-height of
+    200 rhythm units.
+  &lt;/div&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+			</div>
+		</section>
+		
+	<footer>Last modified Sunday, 10 April 2016 23:40</footer>
+</main>
+<script src="prism.js"></script>
+<script src="examples.js"></script>
+<script src="script.js"></script>
+
