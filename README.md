@@ -20,8 +20,8 @@ conventions.
 
 Where `<amount>` can be either a unitless number representing a number of
 typographic rhythm units as defined in
-[$jigsass-sizes](https://txhawks.github.io/jigsass-tools-typography/#variable-jigsass-sizes)
-or a length specified in pixels.
+[$jigsass-sizes](https://txhawks.github.io/jigsass-tools-typography/#variable-jigsass-sizes),
+a percentage, or a length specified in pixels.
 
 
 ## Installation
