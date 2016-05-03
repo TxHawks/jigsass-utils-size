@@ -230,17 +230,18 @@ $_jigsass-util-size-i: 1;
     $_prop: map-get($_jigsass-size-sizers, $jigsass-util-name);
 
     @if(
-      type-of($_modifier) != number or
-      not index(px '' '%' em rem auto none, unit($_modifier))
+      not index(auto none, $_modifier) and
+      (type-of($_modifier) != number or
+      not index(px '' '%' em rem, unit($_modifier)))
     ) {
       @error 'jigsass-utils-size: A length modifier must be a unitless number, ' +
-        ', a percentage, or a length in pixels, ems or rems. \a' +
+        ', a percentage, a length in pixels, ems or rems, `auto` or `none`. \a' +
         'You are trying to pass the #{type-of($_modifier)} `#{$_modifier}`.';
     }
 
 
     // When length is in rhythm units
-    @if (unitless($_modifier)) {
+    @if (type-of($_modifier) == number and unitless($_modifier)) {
       @include jigsass-rem($_prop, jigsass-rhythm($_modifier, $unit: rem));
     }
 
@@ -273,7 +274,7 @@ an element.
   <div class='fpo  #{$jigsass-util-name}--#{$jigsass-util-modifier}'>
     This element has a #{map-get($_jigsass-size-sizers, $jigsass-util-name)} of
     #{ if(
-      unitless($jigsass-util-modifier),
+      type-of($jigsass-util-modifier) == number and unitless($jigsass-util-modifier),
       $jigsass-util-modifier rhythm units,
       $jigsass-util-modifier
     )}.
