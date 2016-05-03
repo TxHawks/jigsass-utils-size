@@ -46,18 +46,24 @@ conventions.
 #### Available classes
 
   - `.u-w--<amount>`: width
+  - `.u-w--auto`: width: auto
   - `.u-miw--<amount>`: min-width
+  - `.u-miw--none`: min-width: none
   - `.u-maw--<amount>`: max-width
+  - `.u-maw--none`: max-width: none
 
   - `.u-h--<amount>`: height
+  - `.u-h--auto`: height: auto
   - `.u-mih--<amount>`: min-height
+  - `.u-mih--none`: min-height: none
   - `.u-mah--<amount>`: max-height
+  - `.u-mah--none`: max-height: none
 
 
 Where `<amount>` can be either a unitless number representing a number of
 typographic rhythm units as defined in
 [$jigsass-sizes](https://txhawks.github.io/jigsass-tools-typography/#variable-jigsass-sizes),
-a percentage, or a length specified in pixels, ems or rems.
+a percentage, or a length specified in pixels, ems or rems, auto or none.
 
 
 #### Installation
@@ -225,7 +231,7 @@ $_jigsass-util-size-i: 1;
 
     @if(
       type-of($_modifier) != number or
-      not index(px '' '%' em rem, unit($_modifier))
+      not index(px '' '%' em rem auto none, unit($_modifier))
     ) {
       @error 'jigsass-utils-size: A length modifier must be a unitless number, ' +
         ', a percentage, or a length in pixels, ems or rems. \a' +
