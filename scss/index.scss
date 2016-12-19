@@ -230,12 +230,11 @@ $_jigsass-util-size-i: 1;
     $_prop: map-get($_jigsass-size-sizers, $jigsass-util-name);
 
     @if(
-      not index(auto none, $_modifier) and
-      (type-of($_modifier) != number or
-      not index(px '' '%' em rem, unit($_modifier)))
+      (not index(auto none, $_modifier)) and
+      type-of($_modifier) != number
     ) {
-      @error 'jigsass-utils-size: A length modifier must be a unitless number, ' +
-        ', a percentage, a length in pixels, ems or rems, `auto` or `none`. \a' +
+      @error 'jigsass-utils-size: A length modifier must be `auto`, `none`, ' +
+        'a css length or a unitless number. \a' +
         'You are trying to pass the #{type-of($_modifier)} `#{$_modifier}`.';
     }
 
@@ -245,7 +244,7 @@ $_jigsass-util-size-i: 1;
       @include jigsass-rem($_prop, jigsass-rhythm($_modifier, $unit: rem));
     }
 
-    // When length is percentage or a number in pixels, ems or rems
+    // Otherwise
     @else {
       #{$_prop}: $_modifier;
     }
